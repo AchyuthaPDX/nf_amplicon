@@ -1,0 +1,3 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+3	6b/4261ad	86753	NFCORE_AMPLISEQ:AMPLISEQ:METADATA_ALL (Metadata_full.tsv)	FAILED	125	2024-04-28 20:30:04.445	299ms	296ms	-	-	-	-	-
+2	6e/ccf480	86774	NFCORE_AMPLISEQ:AMPLISEQ:METADATA_PAIRWISE (Metadata_full.tsv)	FAILED	125	2024-04-28 20:30:04.748	94ms	2ms	-	-	-	-	-

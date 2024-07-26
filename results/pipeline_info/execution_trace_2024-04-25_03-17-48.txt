@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	65/3485b2	80478	NFCORE_AMPLISEQ:AMPLISEQ:FORMAT_FASTAINPUT (1)	FAILED	125	2024-04-25 03:17:52.639	302ms	242ms	-	-	-	-	-

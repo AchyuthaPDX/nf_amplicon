@@ -1,0 +1,499 @@
+<!--
+  ~ Copyright 2013-2023, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+flowchart TB
+    subgraph " "
+    v0["Channel.fromPath"]
+    v5["Channel.fromList"]
+    v13["Channel.fromPath"]
+    v14["Channel.fromPath"]
+    v15["Channel.fromPath"]
+    v21["Channel.fromFilePairs"]
+    v132["suffix"]
+    v137["outfile"]
+    v138["taxlevels_input"]
+    v143["outfile"]
+    v144["taxlevels_input"]
+    v169["script"]
+    v172["min_frequency"]
+    v173["min_samples"]
+    v174["exclude_taxa"]
+    v183["tax_agglom_min"]
+    v184["tax_agglom_max"]
+    v193["tax_agglom_min"]
+    v194["tax_agglom_max"]
+    v198["outfile"]
+    v202["outfile"]
+    v206["outfile"]
+    v210["outfile"]
+    v214["setting"]
+    v232["sam_tsv"]
+    v233["tree"]
+    v243["ch_workflow_summary"]
+    v246["ch_methods_description"]
+    v279[" "]
+    v291["report_abstract"]
+    v292["input_samplesheet"]
+    v293["cutadapt_summary"]
+    v294["find_truncation_values"]
+    v295["vsearch_cluster"]
+    v296["filter_ssu_stats"]
+    v297["filter_ssu_asv"]
+    v298["filter_len_asv_stats"]
+    v299["filter_len_asv_len_orig"]
+    v300["filter_codons_fasta"]
+    v301["filter_codons_stats"]
+    v302["itsx_cutasv_summary"]
+    v303["sintax_tax"]
+    v304["kraken2_tax"]
+    v305["pplace_tax"]
+    v306[" "]
+    v307["qiime2_tax"]
+    v308["run_qiime2"]
+    v309["val_used_taxonomy"]
+    v310["qiime2_filtertaxa"]
+    v311["alpha_rarefaction"]
+    v312["diversity_indices"]
+    v313["diversity_indices_alpha"]
+    v314["diversity_indices_beta"]
+    v315["diversity_indices_adonis"]
+    v316["ancom"]
+    v317["picrust_pathways"]
+    v318["sbdi"]
+    end
+    subgraph NFCORE_AMPLISEQ
+    subgraph AMPLISEQ
+    v35([RENAME_RAW_DATA_FILES])
+    v38([FASTQC])
+    subgraph DADA2_PREPROCESSING
+    v52([DADA2_QUALITY1])
+    v57([TRUNCLEN])
+    v63([DADA2_FILTNTRIM])
+    v82([DADA2_QUALITY2])
+    v56(( ))
+    v58(( ))
+    v66(( ))
+    v87(( ))
+    v94(( ))
+    v95(( ))
+    end
+    v97([DADA2_ERR])
+    v104([DADA2_DENOISING])
+    v109([DADA2_RMCHIMERA])
+    v115([DADA2_STATS])
+    v121([DADA2_MERGE])
+    v124([BARRNAP])
+    v127([BARRNAPSUMMARY])
+    v133([FORMAT_TAXONOMY])
+    subgraph DADA2_TAXONOMY_WF
+    v139([DADA2_TAXONOMY])
+    v145([DADA2_ADDSPECIES])
+    v278(( ))
+    end
+    subgraph QIIME2_TAXONOMY
+    v155([QIIME2_INSEQ])
+    v156([QIIME2_CLASSIFY])
+    end
+    v161([PHYLOSEQ_INTAX_QIIME2])
+    v165([QIIME2_INASV])
+    v167([QIIME2_INSEQ])
+    v170([QIIME2_INTAX])
+    v175([QIIME2_FILTERTAXA])
+    v177([FILTER_STATS])
+    v180([MERGE_STATS_FILTERTAXA])
+    subgraph QIIME2_EXPORT
+    v185([QIIME2_EXPORT_ABSOLUTE])
+    v191([QIIME2_EXPORT_RELASV])
+    v195([QIIME2_EXPORT_RELTAX])
+    v199([COMBINE_TABLE_QIIME2])
+    v203([COMBINE_TABLE_DADA2])
+    v207([COMBINE_TABLE_PPLACE])
+    v211([COMBINE_TABLE_SINTAX])
+    v287(( ))
+    end
+    v215([QIIME2_BARPLOT])
+    v217([METADATA_ALL])
+    v223([METADATA_PAIRWISE])
+    subgraph PHYLOSEQ_WORKFLOW
+    v230([PHYLOSEQ_INASV])
+    v234([PHYLOSEQ])
+    v149(( ))
+    v288(( ))
+    end
+    v239([CUSTOM_DUMPSOFTWAREVERSIONS])
+    v258([MULTIQC])
+    v319([SUMMARY_REPORT])
+    v6(( ))
+    v22(( ))
+    v36(( ))
+    v43(( ))
+    v117(( ))
+    v119(( ))
+    v126(( ))
+    v128(( ))
+    v219(( ))
+    v225(( ))
+    v244(( ))
+    v255(( ))
+    v256(( ))
+    v257(( ))
+    v261(( ))
+    v263(( ))
+    v264(( ))
+    v269(( ))
+    v273(( ))
+    v274(( ))
+    v275(( ))
+    v276(( ))
+    v277(( ))
+    v280(( ))
+    v281(( ))
+    v283(( ))
+    v285(( ))
+    v286(( ))
+    end
+    end
+    subgraph " "
+    v39[" "]
+    v53[" "]
+    v54[" "]
+    v83[" "]
+    v84[" "]
+    v85[" "]
+    v86[" "]
+    v98[" "]
+    v99[" "]
+    v100[" "]
+    v101[" "]
+    v102[" "]
+    v105[" "]
+    v106[" "]
+    v110[" "]
+    v111[" "]
+    v116[" "]
+    v122[" "]
+    v123[" "]
+    v125[" "]
+    v134[" "]
+    v135[" "]
+    v140[" "]
+    v141["outfile"]
+    v146[" "]
+    v147[" "]
+    v157[" "]
+    v158["qza"]
+    v162[" "]
+    v166[" "]
+    v168[" "]
+    v171[" "]
+    v176[" "]
+    v181[" "]
+    v182[" "]
+    v186[" "]
+    v187[" "]
+    v188[" "]
+    v189[" "]
+    v190[" "]
+    v192[" "]
+    v196[" "]
+    v197[" "]
+    v200[" "]
+    v201[" "]
+    v204[" "]
+    v205[" "]
+    v208[" "]
+    v209[" "]
+    v212[" "]
+    v213[" "]
+    v216[" "]
+    v218[" "]
+    v222["ch_metacolumn_all"]
+    v224[" "]
+    v227["ch_metacolumn_pairwise"]
+    v229["ch_meta"]
+    v231[" "]
+    v240[" "]
+    v241[" "]
+    v259[" "]
+    v260[" "]
+    v262[" "]
+    v282[" "]
+    v284[" "]
+    v320[" "]
+    v321[" "]
+    v323["ch_versions"]
+    end
+    v228(( ))
+    v0 --> v255
+    v5 --> v6
+    v13 --> v319
+    v14 --> v319
+    v15 --> v319
+    v21 --> v22
+    v22 --> v35
+    v35 --> v38
+    v35 --> v36
+    v35 --> v43
+    v35 --> v58
+    v38 --> v39
+    v38 --> v36
+    v38 --> v244
+    v43 --> v52
+    v52 --> v54
+    v52 --> v57
+    v52 --> v53
+    v52 --> v36
+    v52 --> v56
+    v52 --> v94
+    v57 --> v36
+    v57 --> v58
+    v58 --> v63
+    v63 --> v36
+    v63 --> v66
+    v66 --> v82
+    v82 --> v86
+    v82 --> v85
+    v82 --> v84
+    v82 --> v83
+    v82 --> v87
+    v82 --> v95
+    v66 --> v97
+    v97 --> v102
+    v97 --> v101
+    v97 --> v100
+    v97 --> v99
+    v97 --> v98
+    v97 --> v66
+    v97 --> v269
+    v66 --> v104
+    v104 --> v109
+    v104 --> v106
+    v104 --> v105
+    v104 --> v36
+    v104 --> v66
+    v109 --> v111
+    v109 --> v110
+    v109 --> v66
+    v109 --> v119
+    v66 --> v115
+    v115 --> v116
+    v115 --> v117
+    v117 --> v121
+    v119 --> v121
+    v121 --> v180
+    v121 --> v165
+    v121 --> v124
+    v121 --> v123
+    v121 --> v122
+    v121 --> v139
+    v121 --> v155
+    v121 --> v167
+    v121 --> v177
+    v121 --> v273
+    v121 --> v274
+    v121 --> v275
+    v121 --> v276
+    v121 --> v281
+    v124 --> v125
+    v124 --> v36
+    v124 --> v126
+    v126 --> v127
+    v127 --> v128
+    v127 --> v277
+    v132 --> v133
+    v6 --> v133
+    v133 --> v139
+    v133 --> v145
+    v133 --> v135
+    v133 --> v134
+    v137 --> v139
+    v138 --> v139
+    v139 --> v141
+    v139 --> v145
+    v139 --> v140
+    v139 --> v36
+    v143 --> v145
+    v144 --> v145
+    v145 --> v147
+    v145 --> v146
+    v145 --> v170
+    v145 --> v203
+    v145 --> v149
+    v145 --> v278
+    v155 --> v156
+    v155 --> v36
+    v156 --> v158
+    v156 --> v161
+    v156 --> v157
+    v156 --> v199
+    v161 --> v162
+    v161 --> v149
+    v165 --> v175
+    v165 --> v166
+    v167 --> v175
+    v167 --> v168
+    v169 --> v170
+    v170 --> v175
+    v170 --> v171
+    v170 --> v185
+    v170 --> v195
+    v170 --> v215
+    v172 --> v175
+    v173 --> v175
+    v174 --> v175
+    v175 --> v185
+    v175 --> v177
+    v175 --> v176
+    v175 --> v191
+    v175 --> v195
+    v175 --> v215
+    v175 --> v230
+    v175 --> v283
+    v177 --> v180
+    v177 --> v36
+    v177 --> v285
+    v180 --> v182
+    v180 --> v181
+    v183 --> v185
+    v184 --> v185
+    v185 --> v199
+    v185 --> v190
+    v185 --> v189
+    v185 --> v188
+    v185 --> v187
+    v185 --> v186
+    v185 --> v203
+    v185 --> v207
+    v185 --> v211
+    v185 --> v287
+    v191 --> v199
+    v191 --> v192
+    v191 --> v203
+    v191 --> v207
+    v191 --> v211
+    v193 --> v195
+    v194 --> v195
+    v195 --> v197
+    v195 --> v196
+    v198 --> v199
+    v199 --> v201
+    v199 --> v200
+    v202 --> v203
+    v203 --> v205
+    v203 --> v204
+    v206 --> v207
+    v207 --> v209
+    v207 --> v208
+    v210 --> v211
+    v211 --> v213
+    v211 --> v212
+    v214 --> v215
+    v215 --> v216
+    v215 --> v286
+    v217 --> v218
+    v217 --> v219
+    v219 --> v222
+    v223 --> v224
+    v223 --> v225
+    v225 --> v227
+    v228 --> v229
+    v230 --> v234
+    v230 --> v231
+    v232 --> v234
+    v233 --> v234
+    v149 --> v234
+    v234 --> v36
+    v234 --> v288
+    v36 --> v239
+    v239 --> v241
+    v239 --> v240
+    v239 --> v244
+    v243 --> v244
+    v246 --> v244
+    v244 --> v258
+    v255 --> v258
+    v256 --> v258
+    v257 --> v258
+    v258 --> v260
+    v258 --> v319
+    v258 --> v259
+    v258 --> v261
+    v261 --> v262
+    v279 --> v280
+    v281 --> v282
+    v283 --> v284
+    v291 --> v319
+    v292 --> v319
+    v293 --> v319
+    v294 --> v319
+    v295 --> v319
+    v296 --> v319
+    v297 --> v319
+    v298 --> v319
+    v299 --> v319
+    v300 --> v319
+    v301 --> v319
+    v302 --> v319
+    v303 --> v319
+    v304 --> v319
+    v305 --> v319
+    v306 --> v319
+    v307 --> v319
+    v308 --> v319
+    v309 --> v319
+    v310 --> v319
+    v311 --> v319
+    v312 --> v319
+    v313 --> v319
+    v314 --> v319
+    v315 --> v319
+    v316 --> v319
+    v317 --> v319
+    v318 --> v319
+    v66 --> v319
+    v94 --> v319
+    v95 --> v319
+    v263 --> v319
+    v264 --> v319
+    v269 --> v319
+    v273 --> v319
+    v274 --> v319
+    v275 --> v319
+    v276 --> v319
+    v277 --> v319
+    v278 --> v319
+    v280 --> v319
+    v285 --> v319
+    v286 --> v319
+    v287 --> v319
+    v288 --> v319
+    v319 --> v321
+    v319 --> v320
+    v319 --> v36
+    v36 --> v323
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>
